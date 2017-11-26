@@ -12,9 +12,17 @@ def search(request):
         skills = Skill.objects.filter(name=query)
         return render(request, 'home.html', {'skills': skills})
 
-
-
 def soccer(request):
     sport = Sport.objects.get(name='Soccer')
     skills = Skill.objects.filter(sport=sport)
     return render(request, 'soccer.html', {'skills': skills})
+
+def basketball(request):
+    sport = Sport.objects.get(name='Basketball')
+    skills = Skill.objects.filter(sport=sport)
+    return render(request, 'basketball.html', {'skills': skills})
+
+def futsal(request):
+    sport = Sport.objects.get(name='Futsal')
+    skills = Skill.objects.filter(sport=sport)
+    return render(request, 'futsal.html', {'skills': skills})

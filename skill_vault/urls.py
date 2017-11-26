@@ -22,5 +22,7 @@ urlpatterns = [
     url(r'^$', views.home, name='home'),
     url(r'search/?', views.search, name='search'),
     url(r'^soccer/?', views.soccer, name='soccer'),
+    url(r'^basketball/?', views.basketball, name='basketball'),
+    url(r'^futsal/?', views.futsal, name='futsal'),
     url(r'^admin/', admin.site.urls),
 ]
