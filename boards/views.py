@@ -1,3 +1,4 @@
+from django.db.models import Q
 from django.shortcuts import render, get_object_or_404
 from .models import Sport, Skill
 
@@ -9,7 +10,9 @@ def home(request):
 def search(request):
     if request.method == 'GET':
         query = request.GET.get('q').lower()
-        skills = Skill.objects.filter(name=query)
+        skills = Skill.objects.filter(
+            Q(player_name__icontains=query) | Q(name=query)
+        )
         return render(request, 'home.html', {'skills': skills})
 
 def soccer(request):
